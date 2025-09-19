@@ -1,9 +1,5 @@
-with raw_reviews as (select * from airbnb.raw.raw_reviews)
+with raw_reviews as (select * from {{ref("src_hosts")}})
 select
-    listing_id,
-    date as review_date,
-    reviewer_name,
-    comments as review_text,
-    sentiment as review_sentiment
+   host_id,  host_name, is_superhost, created_at, updated_at
 from raw_reviews
-where listing_id = 12345
+where host_id = 12345
