@@ -1,4 +1,4 @@
-with raw_listings as (select * from airbnb.raw.raw_listings)
+with raw_listings as (select * from  {{ source('airbnb', 'listings') }})
 select
     id as listing_id,
     name as listing_name,
